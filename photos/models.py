@@ -6,7 +6,17 @@ class Editor(models.Model):
     last_name = models.CharField(max_length =30)
     email = models.EmailField()
     
-    def __str__(self):
-        return self.first_name
+    class tags(models.Model):
+         name = models.CharField(max_length =30)
+    
     class Meta:
         ordering = ['first_name']
+    
+    class Article(models.Model):
+    title = models.CharField(max_length =60)
+    post = models.TextField()
+    editor = models.ForeignKey(Editor)
+    tags = models.ManyToManyField(tags)
+    
+    def __str__(self):
+        return self.first_name
