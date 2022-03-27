@@ -46,3 +46,19 @@ def addPhoto(request):
             image=image
         )
         return redirect('gallery')
+    context= {'categories':categories}
+    return render(request,'add.html',context)
+
+def search_results(request):
+
+    if 'category_name' in request.GET and request.GET["category_name"]:
+        search_term = request.GET.get("category_name")
+    
+        searched_category_name = Category.search_by_category_name(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html',{"message":message,"category_name": searched_category_name})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'search.html',{"message":message})
