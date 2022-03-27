@@ -16,3 +16,11 @@ def gallery(request):
     context= {'categories':categories, 'photos':photos}
     
     return render(request,'gallery.html',context)
+
+def viewPhoto(request,pk=int):
+    photo=Image.objects.get(id=pk)
+    return render(request,'photo.html',{'photo':photo})
+
+def about(request):
+    
+    return render(request,'about.html')
