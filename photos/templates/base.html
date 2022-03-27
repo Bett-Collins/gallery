@@ -1,16 +1,26 @@
+{% load  %}
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
 
   {% if title %}
-  <title>Moringa Tribune - {{title}}</title>
+  <title>Gallery {{title}}</title>
   {% else %}
-    <title> Moringa Tribune </title>
+    <title> Gallery </title>
   {% endif %}
+
+  {% block styles %}
+    {% bootstrap_css %}
+  {% endblock %}
 
 </head>
 <body>
    
+
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% comment %} {% bootstrap_javascript %} {% endcomment %}
+    {% endblock %}
 </body>
 </html>
