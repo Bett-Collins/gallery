@@ -1,11 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Category,Image,Location
+
 # Create your views here.
-#................
-
-def welcome(request):
-    return render(request, 'welcome.html')
-
 def gallery(request):
     category = request.GET.get('category')
     if category==None:
@@ -46,8 +42,9 @@ def addPhoto(request):
             image=image
         )
         return redirect('gallery')
+
     context= {'categories':categories}
-    return render(request,'add.html',context)
+    return render(request,'gallery.html',context)
 
 def search_results(request):
 
@@ -62,3 +59,8 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+    
+
+    
+

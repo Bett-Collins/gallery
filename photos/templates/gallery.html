@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{% block content %}
+{{block.super}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-header">
+                    View based on Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                       <a href="{% url 'gallery' %}">All</a> 
+                    </li>
+                    
+                                                        {{category.category_name}}
+                                                        {{category.location_name}}
+                                                    </a>
+                                                    
+                                                </li>
+                                                
+                                                  
+                                                
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                            
+                                    <style>
+                                        .image-thumbail{
+                                           height: 200px; 
+                                           width: 200px;
+                                           overflow: cover;
+                                        }
+                                    </style>
+                            
+                                    <div class="col-md-9  col-sm-9 col-md-4 col-lg-9">
+                                        <div class="row">
+                                            {% for photo in photos %}
+                                            <div class=" col-sm-4 col-md-4 col-lg-4">
+                                                <div class="card my-2 ">
+                                                    <a style="text-decoration: none;" href="{%url 'photo' photo.id %}" class="btn btn-outline-light btn-sm m-1">
+                                                        <img class="image-thumbail"
+                                                        src="{{ photo.image.url}}"
+                                                        width="100px" alt="Card image cap"></a>
+                            
+                                                    
+                                                    <div class="card-body">
+                                                        <small>Category:{{photo.category.category_name}}</small>
+                                                    </div>
+                            
+                                                </div>
+                                            </div>
+                                            {% empty %}
+                                            <h2>No photos ....</h2>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    
+                            
+                                </div>
+                            </div>
+                            {% endblock %}     
