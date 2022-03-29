@@ -13,10 +13,6 @@ def gallery(request):
     
     return render(request,'gallery.html',context)
 
-def viewPhoto(request,pk=int):
-    photo=Image.objects.get(id=pk)
-    return render(request,'photo.html',{'photo':photo})
-
 def about(request):
     
     return render(request,'about.html')
@@ -44,7 +40,7 @@ def addPhoto(request):
         return redirect('gallery')
 
     context= {'categories':categories}
-    return render(request,'gallery.html',context)
+    return render(request,'add.html',context)
 
 def search_results(request):
 
