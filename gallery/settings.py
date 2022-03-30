@@ -32,8 +32,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1'
-DISABLE_COLLECTSTATIC=1
+ALLOWED_HOSTS=[]
+
 
 # Application definition
 
